@@ -1,0 +1,248 @@
+.animated-architecture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+  transition: opacity 0.3s ease;
+}
+
+.architecture-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Enhanced Service Node Animations */
+.service-node {
+  animation: gentlePulse 4s ease-in-out infinite;
+  transform-origin: center;
+  transform: scale(1.25); /* Make all nodes 25% larger */
+}
+
+.user-node {
+  animation: userPulse 3s ease-in-out infinite;
+  transform: scale(1.35); /* Make user node even larger */
+}
+
+.cloudfront-main {
+  animation: cloudfrontSpin 8s linear infinite;
+}
+
+.s3-main {
+  animation: s3Bounce 2s ease-in-out infinite;
+}
+
+.edge-server {
+  animation: edgeFlicker 1.5s ease-in-out infinite;
+}
+
+.service-node:nth-child(2n) {
+  animation-delay: 0.5s;
+}
+
+.service-node:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+.service-node:nth-child(4n) {
+  animation-delay: 1.5s;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { 
+    opacity: 0.8; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes userPulse {
+  0%, 100% { 
+    opacity: 0.9; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.08);
+  }
+}
+
+@keyframes cloudfrontSpin {
+  0% { 
+    transform: rotate(0deg) scale(1);
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.03);
+  }
+  100% { 
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes s3Bounce {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+  }
+  50% { 
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+@keyframes edgeFlicker {
+  0%, 100% { 
+    opacity: 0.8;
+  }
+  50% { 
+    opacity: 1;
+  }
+}
+
+/* Enhanced Connection Line Animations */
+.connection-line {
+  stroke-dasharray: 8,4;
+  animation: flowForward 3s linear infinite;
+}
+
+.connection-line-return {
+  stroke-dasharray: 8,4;
+  animation: flowReturn 3s linear infinite;
+  stroke: rgba(56,255,98,0.15);
+}
+
+@keyframes flowForward {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -12;
+  }
+}
+
+@keyframes flowReturn {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 12;
+  }
+}
+
+/* Enhanced Data Packet Styles */
+.data-packets .main-packet {
+  filter: drop-shadow(0 0 8px #38FF62);
+  opacity: 0.9;
+}
+
+.data-packets .secondary-packet {
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* Enhanced Text Styles */
+.service-label-large {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  fill: #232323;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 3px rgba(255,255,255,0.8);
+}
+
+.service-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 500;
+  fill: #232323;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 2px rgba(255,255,255,0.6);
+}
+
+.stats-title-large {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  fill: #232323;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.stats-text-large {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  fill: #232323;
+}
+
+/* Performance Indicator Animation */
+.performance-indicator {
+  animation: performanceFade 4s ease-in-out infinite;
+}
+
+@keyframes performanceFade {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .animated-architecture {
+    opacity: 0.25;
+  }
+  
+  .performance-indicator {
+    display: none;
+  }
+  
+  .service-label-large {
+    font-size: 14px;
+  }
+  
+  .service-label {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-architecture {
+    opacity: 0.2;
+  }
+  
+  .service-label-large,
+  .service-label {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-architecture {
+    opacity: 0.15;
+  }
+}
+
+/* Hover Effects for Desktop */
+@media (hover: hover) and (min-width: 1024px) {
+  .animated-architecture:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+  
+  .service-node:hover {
+    animation-play-state: paused;
+    transform: scale(1.15);
+    transition: transform 0.3s ease;
+  }
+}
