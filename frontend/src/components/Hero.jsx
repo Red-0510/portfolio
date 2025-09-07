@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
       {/* Full Viewport Animated Architecture Background */}
-      <AnimatedArchitecture />
+      {/* <AnimatedArchitecture /> */}
       
       <div className="container relative z-10">
         <div className="grid-container">
