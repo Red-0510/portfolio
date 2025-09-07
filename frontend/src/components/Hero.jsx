@@ -1,15 +1,12 @@
 import React from 'react';
 import { ArrowDown, Mail, MapPin } from 'lucide-react';
 import { mockData } from '../mock';
-import AnimatedArchitecture from './AnimatedArchitecture';
 
 const Hero = () => {
   const { personal, about } = mockData;
 
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-      {/* Full Viewport Animated Architecture Background */}
-      {/* <AnimatedArchitecture /> */}
       
       <div className="container relative z-10">
         <div className="grid-container">
@@ -79,18 +76,6 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Architecture Note */}
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-green-50 text-green-800 px-4 py-2 border border-green-200 text-sm">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="font-medium">Live Architecture: S3 → CloudFront → Your Browser</span>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="flex justify-center animate-bounce">
-            <ArrowDown size={24} className="opacity-50" />
-          </div>
         </div>
       </div>
     </section>
