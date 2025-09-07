@@ -9,69 +9,74 @@ const Skills = () => {
     {
       ...skills.languages,
       icon: Code,
-      color: "bg-blue-50 border-blue-200"
+      gradient: "from-blue-500/20 to-blue-600/20"
     },
     {
       ...skills.technologies,
       icon: Wrench,
-      color: "bg-green-50 border-green-200"
+      gradient: "from-green-500/20 to-green-600/20"
     },
     {
       ...skills.cloud,
       icon: Cloud,
-      color: "bg-purple-50 border-purple-200"
+      gradient: "from-purple-500/20 to-purple-600/20"
     },
     {
       ...skills.databases,
       icon: Database,
-      color: "bg-orange-50 border-orange-200"
+      gradient: "from-orange-500/20 to-orange-600/20"
     },
     {
       ...skills.ai,
       icon: Brain,
-      color: "bg-red-50 border-red-200"
+      gradient: "from-red-500/20 to-red-600/20"
     }
   ];
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="container">
         <div className="grid-container">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="label mb-4">TECHNICAL EXPERTISE</div>
-            <h2 className="title-big mb-8">Skills</h2>
-            <p className="text-body max-w-3xl mx-auto opacity-80">
+          {/* Enhanced Section Header */}
+          <div className="text-center mb-20">
+            <div className="label mb-6 tracking-wider opacity-80">TECHNICAL EXPERTISE</div>
+            <h2 className="title-big mb-10">Skills</h2>
+            <p className="text-body max-w-4xl mx-auto opacity-90 leading-relaxed">
               Comprehensive technology stack with focus on backend development, 
               cloud infrastructure, and modern software engineering practices.
             </p>
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {/* Enhanced Skills Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
             {skillCategories.map((category, index) => {
               const Icon = category.icon;
               return (
-                <div key={index} className="card hover-lift">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`p-3 ${category.color} rounded-none`}>
-                      <Icon size={24} />
+                <div key={index} className="card hover-lift group">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-4 border border-current opacity-20 group-hover:opacity-40 transition-all duration-300"
+                         style={{ borderColor: 'var(--border-color)' }}>
+                      <Icon size={28} />
                     </div>
-                    <h3 className="label">{category.title}</h3>
+                    <h3 className="label tracking-wider group-hover:opacity-100 transition-opacity">
+                      {category.title}
+                    </h3>
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-4">
                     {category.items.map((skill, skillIndex) => {
                       const isElementary = skill.includes('*');
                       const skillName = skill.replace('*', '');
                       
                       return (
-                        <div key={skillIndex} className="flex items-center justify-between">
-                          <span className={`text-body ${isElementary ? 'opacity-60' : ''}`}>
+                        <div key={skillIndex} className="flex items-center justify-between group/skill">
+                          <span className={`text-body transition-opacity duration-300 ${
+                            isElementary ? 'opacity-60' : 'opacity-90'
+                          } group-hover/skill:opacity-100`}>
                             {skillName}
                           </span>
                           {isElementary && (
-                            <span className="text-xs font-mono opacity-40 uppercase">
+                            <span className="text-xs font-mono opacity-40 uppercase tracking-wider transition-opacity group-hover/skill:opacity-60">
                               Elementary
                             </span>
                           )}
@@ -84,17 +89,19 @@ const Skills = () => {
             })}
           </div>
 
-          {/* Proficiency Legend */}
-          <div className="text-center mt-12">
-            <div className="label-small mb-4">PROFICIENCY LEVELS</div>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-black"></div>
-                <span>Advanced / Professional</span>
+          {/* Enhanced Proficiency Legend */}
+          <div className="text-center mt-16">
+            <div className="label-small mb-6 tracking-wider">PROFICIENCY LEVELS</div>
+            <div className="flex flex-wrap justify-center gap-8 text-sm">
+              <div className="flex items-center gap-3 group">
+                <div className="w-4 h-4 transition-all duration-300"
+                     style={{ backgroundColor: 'var(--text-primary)' }}></div>
+                <span className="group-hover:opacity-100 transition-opacity">Advanced / Professional</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 bg-gray-400"></div>
-                <span>Elementary / Learning</span>
+              <div className="flex items-center gap-3 group">
+                <div className="w-4 h-4 opacity-40 transition-all duration-300"
+                     style={{ backgroundColor: 'var(--text-primary)' }}></div>
+                <span className="opacity-60 group-hover:opacity-80 transition-opacity">Elementary / Learning</span>
               </div>
             </div>
           </div>

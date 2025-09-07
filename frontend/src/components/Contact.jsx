@@ -49,45 +49,50 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20" style={{ backgroundColor: 'var(--bg-white)' }}>
       <div className="container">
         <div className="grid-container">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <div className="label mb-4">GET IN TOUCH</div>
-            <h2 className="title-big mb-8">Contact</h2>
-            <p className="text-body max-w-3xl mx-auto opacity-80">
+          {/* Enhanced Section Header */}
+          <div className="text-center mb-20">
+            <div className="label mb-6 tracking-wider opacity-80">GET IN TOUCH</div>
+            <h2 className="title-big mb-10">Contact</h2>
+            <p className="text-body max-w-4xl mx-auto opacity-90 leading-relaxed">
               Open to discussing backend development opportunities, technical challenges, 
               or collaboration on innovative projects. Let's build something great together.
             </p>
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Information */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              {/* Enhanced Contact Information */}
               <div>
-                <div className="label mb-6">CONTACT INFORMATION</div>
-                <div className="space-y-6">
+                <div className="label mb-8 tracking-wider">CONTACT INFORMATION</div>
+                <div className="space-y-8">
                   {contactMethods.map((method, index) => {
                     const Icon = method.icon;
                     return (
-                      <div key={index} className="flex items-start gap-4">
-                        <div className="p-3 bg-gray-100 flex-shrink-0">
-                          <Icon size={20} />
+                      <div key={index} className="flex items-start gap-5 group">
+                        <div className="p-4 border border-current opacity-20 flex-shrink-0 group-hover:opacity-40 transition-all duration-300"
+                             style={{ borderColor: 'var(--border-color)' }}>
+                          <Icon size={24} />
                         </div>
-                        <div>
-                          <div className="label-small mb-1">{method.label}</div>
+                        <div className="flex-1">
+                          <div className="label-small mb-2 tracking-wider opacity-80">
+                            {method.label}
+                          </div>
                           {method.href ? (
                             <a
                               href={method.href}
-                              className={`text-body hover-opacity ${
+                              className={`text-body hover-opacity transition-all duration-300 ${
                                 method.primary ? 'font-medium' : ''
-                              }`}
+                              } group-hover:opacity-100`}
                             >
                               {method.value}
                             </a>
                           ) : (
-                            <p className="text-body">{method.value}</p>
+                            <p className="text-body group-hover:opacity-100 transition-opacity">
+                              {method.value}
+                            </p>
                           )}
                         </div>
                       </div>
@@ -95,9 +100,9 @@ const Contact = () => {
                   })}
                 </div>
 
-                {/* Social Links */}
-                <div className="mt-12">
-                  <div className="label mb-6">CONNECT WITH ME</div>
+                {/* Enhanced Social Links */}
+                <div className="mt-16">
+                  <div className="label mb-8 tracking-wider">CONNECT WITH ME</div>
                   <div className="space-y-4">
                     {socialLinks.map((social, index) => {
                       const Icon = social.icon;
@@ -107,12 +112,17 @@ const Contact = () => {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-4 p-4 border border-gray-200 hover-lift transition-all group"
+                          className="flex items-center gap-5 p-6 border hover-lift transition-all duration-300 group"
+                          style={{ borderColor: 'var(--border-light)' }}
                         >
-                          <Icon size={20} className="group-hover:scale-110 transition-transform" />
-                          <div>
-                            <div className="label-small">{social.label}</div>
-                            <div className="text-body opacity-70">{social.username}</div>
+                          <Icon size={24} className="group-hover:scale-110 transition-transform duration-300" />
+                          <div className="flex-1">
+                            <div className="label-small tracking-wider group-hover:opacity-100 transition-opacity">
+                              {social.label}
+                            </div>
+                            <div className="text-body opacity-70 group-hover:opacity-90 transition-opacity">
+                              {social.username}
+                            </div>
                           </div>
                         </a>
                       );
@@ -121,54 +131,74 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Quick Actions */}
+              {/* Enhanced Quick Actions */}
               <div>
-                <div className="label mb-6">QUICK ACTIONS</div>
-                <div className="space-y-4">
-                  <div className="card">
-                    <h3 className="text-regular mb-4">Ready to Collaborate?</h3>
-                    <p className="text-body mb-6 opacity-80">
+                <div className="label mb-8 tracking-wider">QUICK ACTIONS</div>
+                <div className="space-y-6">
+                  <div className="card hover-lift group">
+                    <h3 className="text-regular mb-6 group-hover:opacity-100 transition-opacity">
+                      Ready to Collaborate?
+                    </h3>
+                    <p className="text-body mb-8 opacity-90 leading-relaxed group-hover:opacity-100 transition-opacity">
                       I'm always open to discussing new opportunities, 
                       technical challenges, or innovative projects.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    <div className="flex flex-col sm:flex-row gap-4">
                       <a
                         href={`mailto:${personal.email}?subject=Collaboration Opportunity`}
-                        className="btn-accent"
+                        className="btn-accent group/btn"
                       >
-                        Send Email
+                        <span className="group-hover/btn:translate-x-1 transition-transform">
+                          Send Email
+                        </span>
                       </a>
                       <a
                         href={personal.links.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary"
+                        className="btn-primary group/btn"
                       >
-                        Connect on LinkedIn
+                        <span className="group-hover/btn:translate-x-1 transition-transform">
+                          Connect on LinkedIn
+                        </span>
                       </a>
                     </div>
                   </div>
 
-                  <div className="card">
-                    <h3 className="text-regular mb-4">Download Resume</h3>
-                    <p className="text-body mb-6 opacity-80">
+                  <div className="card hover-lift group">
+                    <h3 className="text-regular mb-6 group-hover:opacity-100 transition-opacity">
+                      Download Resume
+                    </h3>
+                    <p className="text-body mb-8 opacity-90 leading-relaxed group-hover:opacity-100 transition-opacity">
                       Get a comprehensive overview of my experience, 
                       skills, and achievements.
                     </p>
-                    <button className="btn-primary flex items-center gap-2">
-                      <Download size={16} />
-                      Download CV
+                    <button className="btn-primary flex items-center gap-3 group/btn">
+                      <Download size={18} className="group-hover/btn:scale-110 transition-transform" />
+                      <span className="group-hover/btn:translate-x-1 transition-transform">
+                        Download CV
+                      </span>
                     </button>
                   </div>
                 </div>
 
-                {/* Availability Status */}
-                <div className="mt-8 p-4 bg-green-50 border border-green-200">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                {/* Enhanced Availability Status */}
+                <div className="mt-10 p-6 border transition-all duration-300 hover-lift group"
+                     style={{ 
+                       backgroundColor: 'var(--accent-primary)',
+                       borderColor: 'var(--accent-primary)',
+                       opacity: 0.9
+                     }}>
+                  <div className="flex items-center gap-4">
+                    <div className="w-4 h-4 rounded-full animate-pulse"
+                         style={{ backgroundColor: 'var(--accent-foreground)' }}></div>
                     <div>
-                      <div className="label-small text-green-800">CURRENTLY</div>
-                      <div className="text-body text-green-700">
+                      <div className="label-small tracking-wider"
+                           style={{ color: 'var(--accent-foreground)' }}>
+                        CURRENTLY
+                      </div>
+                      <div className="text-body font-medium"
+                           style={{ color: 'var(--accent-foreground)' }}>
                         Open to new opportunities
                       </div>
                     </div>

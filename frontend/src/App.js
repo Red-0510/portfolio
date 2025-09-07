@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './styles/globals.css';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,7 +11,7 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-// Grid Background Component
+// Enhanced Grid Background Component with theme awareness
 const GridBackground = () => (
   <div className="grid-background" />
 );
@@ -47,20 +48,22 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <GridBackground />
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Achievements />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <GridBackground />
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <Achievements />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -18,7 +18,6 @@ const Footer = () => {
     { label: 'Experience', href: '#experience' },
     { label: 'Skills', href: '#skills' },
     { label: 'Projects', href: '#projects' },
-    { label: 'Architecture', href: '#architecture' },
     { label: 'Achievements', href: '#achievements' },
     { label: 'Contact', href: '#contact' }
   ];
@@ -28,17 +27,21 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white py-16">
+    <footer className="py-20 transition-all duration-300" 
+            style={{ 
+              backgroundColor: 'var(--text-primary)',
+              color: 'var(--bg-white)'
+            }}>
       <div className="container">
         <div className="grid-container">
-          {/* Main Footer Content */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Brand */}
+          {/* Enhanced Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            {/* Enhanced Brand */}
             <div className="lg:col-span-2">
-              <div className="header-logo text-white mb-4">
+              <div className="header-logo mb-6" style={{ color: 'var(--bg-white)' }}>
                 J.MACHHI
               </div>
-              <p className="text-body text-gray-300 mb-6 max-w-md">
+              <p className="text-body mb-8 max-w-md leading-relaxed opacity-80">
                 Software Development Engineer specializing in backend systems, 
                 microservices architecture, and cloud infrastructure.
               </p>
@@ -49,24 +52,28 @@ const Footer = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 border border-gray-700 hover:border-white hover:bg-white hover:text-black transition-all"
+                    className="p-3 border border-current opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300 group"
                     aria-label={label}
+                    style={{ borderColor: 'var(--bg-white)', color: 'var(--bg-white)' }}
                   >
-                    <Icon size={18} />
+                    <Icon size={20} className="group-hover:scale-110 transition-transform" />
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Quick Navigation */}
+            {/* Enhanced Quick Navigation */}
             <div>
-              <div className="label text-white mb-4">NAVIGATION</div>
-              <nav className="space-y-2">
+              <div className="label mb-6 tracking-wider" style={{ color: 'var(--bg-white)' }}>
+                NAVIGATION
+              </div>
+              <nav className="space-y-3">
                 {quickLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
-                    className="block text-gray-300 hover:text-white transition-colors text-sm"
+                    className="block opacity-70 hover:opacity-100 transition-all duration-300 text-sm hover:translate-x-1"
+                    style={{ color: 'var(--bg-white)' }}
                   >
                     {link.label}
                   </a>
@@ -74,20 +81,26 @@ const Footer = () => {
               </nav>
             </div>
 
-            {/* Contact Info */}
+            {/* Enhanced Contact Info */}
             <div>
-              <div className="label text-white mb-4">CONTACT</div>
-              <div className="space-y-2 text-sm">
-                <p className="text-gray-300">{personal.location}</p>
+              <div className="label mb-6 tracking-wider" style={{ color: 'var(--bg-white)' }}>
+                CONTACT
+              </div>
+              <div className="space-y-3 text-sm">
+                <p className="opacity-70" style={{ color: 'var(--bg-white)' }}>
+                  {personal.location}
+                </p>
                 <a
                   href={`mailto:${personal.email}`}
-                  className="block text-gray-300 hover:text-white transition-colors"
+                  className="block opacity-70 hover:opacity-100 transition-all duration-300 hover:translate-x-1"
+                  style={{ color: 'var(--bg-white)' }}
                 >
                   {personal.email}
                 </a>
                 <a
                   href={`tel:${personal.phone}`}
-                  className="block text-gray-300 hover:text-white transition-colors"
+                  className="block opacity-70 hover:opacity-100 transition-all duration-300 hover:translate-x-1"
+                  style={{ color: 'var(--bg-white)' }}
                 >
                   {personal.phone}
                 </a>
@@ -95,40 +108,55 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Footer Bottom */}
-          <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-gray-800">
-            <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-400">
-              <p>© {currentYear} Jainesh Machhi. All rights reserved.</p>
-              <div className="flex items-center gap-4">
-                <span>Built with React & AWS</span>
-                <span>•</span>
-                <span>Deployed on S3 + CloudFront</span>
+          {/* Enhanced Footer Bottom */}
+          <div className="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-current border-opacity-20">
+            <div className="flex flex-col md:flex-row items-center gap-6 text-sm opacity-70">
+              <p style={{ color: 'var(--bg-white)' }}>
+                © {currentYear} Jainesh Machhi. All rights reserved.
+              </p>
+              <div className="flex items-center gap-6">
+                <span style={{ color: 'var(--bg-white)' }}>Built with React & AWS</span>
+                <span style={{ color: 'var(--bg-white)' }}>•</span>
+                <span style={{ color: 'var(--bg-white)' }}>Deployed on S3 + CloudFront</span>
               </div>
             </div>
 
-            {/* Back to Top */}
+            {/* Enhanced Back to Top */}
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors mt-4 md:mt-0"
+              className="flex items-center gap-3 opacity-70 hover:opacity-100 transition-all duration-300 mt-6 md:mt-0 group"
               aria-label="Back to top"
+              style={{ color: 'var(--bg-white)' }}
             >
-              <span className="text-sm">Back to top</span>
-              <ArrowUp size={16} />
+              <span className="text-sm group-hover:translate-x-1 transition-transform">
+                Back to top
+              </span>
+              <ArrowUp size={18} className="group-hover:-translate-y-1 transition-transform" />
             </button>
           </div>
 
-          {/* Competitive Programming Stats */}
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center">
-            <div className="label text-white mb-4">COMPETITIVE PROGRAMMING</div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold text-green-400">1681</span>
-                <span className="text-gray-400">Codeforces Expert</span>
+          {/* Enhanced Competitive Programming Stats */}
+          <div className="mt-16 pt-10 border-t border-current border-opacity-20 text-center">
+            <div className="label mb-6 tracking-wider" style={{ color: 'var(--bg-white)' }}>
+              COMPETITIVE PROGRAMMING
+            </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-12">
+              <div className="flex items-center gap-3 group">
+                <span className="text-xl font-bold transition-all duration-300"
+                      style={{ color: 'var(--accent-primary)' }}>1681</span>
+                <span className="opacity-70 group-hover:opacity-90 transition-opacity"
+                      style={{ color: 'var(--bg-white)' }}>
+                  Codeforces Expert
+                </span>
               </div>
-              <div className="hidden sm:block w-px h-6 bg-gray-700"></div>
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold text-green-400">1909</span>
-                <span className="text-gray-400">Codechef 4⭐</span>
+              <div className="hidden sm:block w-px h-8 bg-current opacity-20"></div>
+              <div className="flex items-center gap-3 group">
+                <span className="text-xl font-bold transition-all duration-300"
+                      style={{ color: 'var(--accent-primary)' }}>1909</span>
+                <span className="opacity-70 group-hover:opacity-90 transition-opacity"
+                      style={{ color: 'var(--bg-white)' }}>
+                  Codechef 4⭐
+                </span>
               </div>
             </div>
           </div>
